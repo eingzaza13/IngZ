@@ -1,0 +1,27 @@
+int sensor = A0; 
+int output_value ;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(Relay, OUTPUT);
+  delay(2000);
+  }
+
+void loop() {
+
+  output_value = analogRead(sensor);
+  output_value = map(output_value,550,0,0,100);
+  Serial.print("Moisture : ");
+  Serial.print(output_value);
+  Serial.println("%");
+  delay(1000);
+
+	if (output_Value <= 40) 
+	digitalWrite(Relay, HIGH);
+	}
+	else {
+	digitalWrite(Relay, LOW);
+	}
+	delay(500);
+  }
+ }
